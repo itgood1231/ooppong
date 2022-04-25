@@ -1,21 +1,38 @@
-//final int ball count=10;
-//balls[]leftScoreOff=new Boolean[balls.length] 
-//int ballCounter=balls.length-balls.lngth;
-//paddle 
-
-//void setup(){
-//size
-//balls[counter]
+  float x;
+  float y = height/2;
+  float ysPeed,xsPeed;
+  float rad;
+  float reset;
 
 
+void reset() {
+    x = width/2;
+    y = height/2;
+    float angle = random(-PI/4, PI/4);
+    //angle = 0;
+    xsPeed = xS * cos(angle);
+    ysPeed = yS * sin(angle);
 
-//}
-//need more here 
-class ScoreBoard { 
-  
-  ScoreBoard () {
+    if (random(1) < 0.5) {
+      xsPeed *= -1;
+    }
   }
-  void draw() {
+
+ void edges() {
+    if (y < 0 || y > height) {
+      ysPeed *= -1;
+    }
+
+    if (x - rad > width) {
+
+      leftscore++;
+     reset();
+    }
+
+    if (x + rad < 0) {
+
+      rightscore++;
+      ysPeed=0;
+     reset();
+    }
   }
- 
-}
